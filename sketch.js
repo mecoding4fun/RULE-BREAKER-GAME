@@ -105,8 +105,10 @@ function draw() {
 
     police.bounceOff(top_edge);
     police.bounceOff(bottom_edge);
+  textSize(15);
+        fill(255,255,255); 
    text("Score: "+ score, 500,50);
-    score = score + Math.round(getFrameRate()/60);
+
 
   
   
@@ -138,7 +140,7 @@ function draw() {
     
     if (police.x >= 100){
     police.velocityX = 5;
-    whistleSound.play();  
+
     }
     
 
@@ -147,9 +149,11 @@ function draw() {
     //  text("Press spacebar to move to the thief",width/3,height /3);
   
   if (police.isTouching(win_box)){
+  whistleSound.play();  
   culprit_1.velocityY = -2;
   culprit_1.velocityX = -1;
              culprit_1.changeAnimation("culprit",culprit_run_img_1);
+
    
 
     
@@ -188,12 +192,13 @@ GameState = WON;
     culprit_1.visible = false;
     reset.visible = true;
     
+
+      fill(255,255,255); 
+    text("OH NO!! YOU HAVE LOST THE CULPRIT",width/3-50,height/2);
+    text(" HE IS THE CAUSE OF OUR ENVIRONMENT DESTRUCTION!!!",width/3-80,height/2+20);
     
 
-    text("OH NO!! YOU HAVE LOST THE CULPRIT, HE IS THE CAUSE OF OUR ENVIRONMENT DESTRUCTION!!!",10,height/2);
-    
-
-    text("BETTER LUCK NEXT TIME!!!!!",width/3,height/2+20);
+    text("BETTER LUCK NEXT TIME!!!!!",width/3,height/2+40);
     
     
     if (mousePressedOver(reset)&& GameState === END){
@@ -225,24 +230,18 @@ GameState = WON;
       culprit_2.visible = false;
       culprit_1.visible = false;
 
-
-    text("CONGRATULATIONS!! YOU HAVE CAUGHT THE CULPRIT",width/3,150);
-      text("THE CRIME HE HAD CAUSED IS HOLDING PLASTIC BAGS OR USING IT!",width/4,170);
-         text("1,00,000 MARINE ANIMALS DIE BECAUSE OF THIS PLASTIC",width/3,210);
-      text("SO, STOP USING PLASTIC",width/3,230);
+     textSize(15);
+      fill(255,255,255); 
+    text("CONGRATULATIONS!! YOU HAVE CAUGHT THE CULPRIT",width/20,150);
+      text("THE CRIME HE HAD CAUSED IS HOLDING PLASTIC BAGS OR USING IT!",width/20,170);
+     
+         text("1,00,000 MARINE ANIMALS DIE BECAUSE OF THIS PLASTIC",width/20,210);
+      text("SO, STOP USING PLASTIC",width/20,230);
+      
+      Score = 500;
 
     }
 
   drawSprites();
  
 }
-
-
-
-
-
-
-
-
-
-
