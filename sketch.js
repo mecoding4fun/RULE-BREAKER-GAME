@@ -201,7 +201,7 @@ GameState = WON;
     text("BETTER LUCK NEXT TIME!!!!!",width/3,height/2+40);
     
     
-    if (mousePressedOver(reset)&& GameState === END){
+    if (mousePressedOver(reset)&& GameState === END|| GameState === WON){
     GameState = Story;
       score = 0;
           police.visible = true;
@@ -229,6 +229,8 @@ GameState = WON;
       police.visible = false;
       culprit_2.visible = false;
       culprit_1.visible = false;
+          reset.visible = true;
+
 
      textSize(15);
       fill(255,255,255); 
@@ -245,3 +247,13 @@ GameState = WON;
   drawSprites();
  
 }
+
+
+
+
+
+
+
+
+
+
