@@ -67,7 +67,7 @@ function setup() {
   vanish_box.visible = false;
   
   win_box = createSprite(120,height/2,50,height);
-  //win_box.visible  = false;
+  win_box.visible  = false;
  // vanish_box.visible = false;
   
 
