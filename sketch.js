@@ -70,7 +70,7 @@ border_right = createSprite(width-210,height/4-50,3,250);
   
   
   
-  culprit_1 = createSprite(width - 220,height - 150,20,20);
+  culprit_1 = createSprite(width - 300,height - 150,20,20);
   culprit_1.scale = 0.8;
   culprit_1.addImage("badboy!",culprit_stand_img);
     culprit_1.addAnimation("turning",boy_stand);
@@ -183,6 +183,8 @@ function draw() {
     text("your character is police!",width/2-100,height/2+100)
     if (mousePressedOver(continue_box)){
     GameState = Story
+                police.visible = true;
+    culprit_1.visible = true;
     }
   }
   
@@ -232,6 +234,9 @@ function draw() {
       culprit_2.visible = true;
     }  
      culprit_1.setCollider('rectangle',0,0,50,50);
+    
+    police.visible = true;
+    culprit_1.visible = true;
 
 
 
