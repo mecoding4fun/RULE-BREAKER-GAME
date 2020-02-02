@@ -332,7 +332,7 @@ GameState = WON;
     culprit_1.visible = true;
     reset.visible = false;
       
-      culprit_1.x = width - 700;
+      culprit_1.x = width - 300;
       culprit_1.y  = height-150;
       police.x = 0-10;
       police.y = height-100;
@@ -380,7 +380,7 @@ GameState = WON;
     culprit_1.visible = true;
     reset.visible = false;
       
-      culprit_1.x = width - 700;
+      culprit_1.x = width - 300;
       culprit_1.y  = height-150;
       police.x = 0-10;
       police.y = height-100;
