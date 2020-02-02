@@ -266,8 +266,8 @@ GameState = WON;
       police.x = 100;
       police.y = height-150;
       police.velocityX = 0;
-  culprit_1.velocityY = -0;
-  culprit_1.velocityX = -0;
+      culprit_1.velocityY = -0;
+      culprit_1.velocityX = -0;
       
        culprit_1.changeAnimation("badboy!",culprit_stand_img);
       
@@ -277,7 +277,7 @@ GameState = WON;
       Score = 500;
 
     }
-console.log(mouse.x,mouse.y);
+console.log(police.x,police.y);
   drawSprites();
  
 }
