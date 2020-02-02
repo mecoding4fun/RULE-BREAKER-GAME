@@ -36,7 +36,7 @@ ohnoSound = loadSound('oh no.mp3');
 function setup() {
   createCanvas(windowWidth, windowHeight);
   
-  police = createSprite(0-100,height-150,20,20);
+  police = createSprite(0-10,height-100,20,20);
   police.setCollider('rectangle',0,0,50,50);
   police.addAnimation("police_img",police_img);
   police.scale = 0.5;
