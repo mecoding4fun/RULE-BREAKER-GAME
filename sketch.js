@@ -6,7 +6,8 @@ var Story = 2;
 var PLAY = 1;
 var END = 0;
 var WON = 3;
-var GameState = Story;
+var INSTRUCT = 4;
+var GameState = INSTRUCT;
 var right_edge;
 var left_edge;
 var bottom_edge;
@@ -16,6 +17,7 @@ var text_box;
 var reset,reset_img;
 var ohnoSound,whistleSound;
 var win_box;
+var continue_box;
 
 
 
@@ -39,7 +41,7 @@ function setup() {
   police = createSprite(0-10,height-100,20,20);
   police.setCollider('rectangle',0,0,50,50);
   police.addAnimation("police_img",police_img);
-  police.scale = 0.5;
+  police.scale = 0.8;
   police.velocityX = 3;
   police.velocityY = -1;
   
@@ -60,18 +62,20 @@ border_right = createSprite(width-210,height/4-50,3,250);
 
   border_down = createSprite(width/2,height,width,3);
    border_down.visible  = false;
+  
+  continue_box = createSprite(width/2,height/2,width,height);
+  continue_box.visible = false;
 
 
   
   
   
   culprit_1 = createSprite(width - 220,height - 150,20,20);
-  culprit_1.scale = 0.5;
+  culprit_1.scale = 0.8;
   culprit_1.addImage("badboy!",culprit_stand_img);
     culprit_1.addAnimation("turning",boy_stand);
   culprit_1.addAnimation("culprit",culprit_run_img_1);
 
-  culprit_1.setCollider('rectangle',0,0,50,50);
   culprit_1.visible = true;
 
   
@@ -108,7 +112,6 @@ function draw() {
   background(background_img);
   
   
-    culprit_1.setCollider('rectangle',0,0,500,500);
 
       culprit_1.bounceOff(right_edge);
     culprit_1.bounceOff(left_edge);
@@ -169,11 +172,36 @@ function draw() {
   police.velocityX= 0;
 
   }
+  
+  if (GameState === INSTRUCT){
+  background(255);
+    police.visible = false;
+    culprit_1.visible = false;
+    fill(255,0,0);
+    text("YOUR AIM IS TO CATCH THE CULPRIT.",width/2-100,height/2);
+    text("use arrow keys to move!",width/2-100,height/2+50);
+    text("your character is police!",width/2-100,height/2+100)
+    if (mousePressedOver(continue_box)){
+    GameState = Story
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
   if (GameState === Story){
     
     if (police.x >= 100){
     police.velocityX = 5;
+          police.visible = true;
+    culprit_1.visible = true;
 
     }
     
@@ -192,7 +220,7 @@ function draw() {
    
 
     
-  culprit_1.setCollider('rectangle',0,0,50,50);
+ 
 
 
     GameState = PLAY;
