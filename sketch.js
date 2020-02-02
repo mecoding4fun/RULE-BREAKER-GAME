@@ -281,3 +281,4 @@ console.log(police.x,police.y);
   drawSprites();
  
 }
+
