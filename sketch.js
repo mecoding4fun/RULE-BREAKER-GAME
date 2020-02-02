@@ -19,6 +19,8 @@ var ohnoSound,whistleSound;
 var win_box;
 var continue_box;
 
+var coin_1,coin_2,coin_3,coin_4,coin_img;
+
 
 
 
@@ -32,6 +34,7 @@ function preload(){
 ohnoSound = loadSound('oh no.mp3');
   whistleSound = loadSound("POLWHST2.mp3");
   boy_stand = loadImage("man-1b.png");
+  coin_img = loadImage("coin.png");
 
 }
 
@@ -65,6 +68,28 @@ border_right = createSprite(width-210,height/4-50,3,250);
   
   continue_box = createSprite(width/2,height/2,width,height);
   continue_box.visible = false;
+  
+  
+  
+  coin_1 = createSprite(width/2,height/6,20,20);
+  coin_1.addImage("gold",coin_img);
+  coin_1.scale = 0.7;
+  coin_1.visible = false;
+  
+    coin_2 = createSprite(width/2+50,height/6,20,20);
+    coin_2.addImage("gold1",coin_img);
+    coin_2.scale = 0.7;
+  coin_2.visible = false;
+  
+    coin_3 = createSprite(width/2+100,height/6,20,20);
+    coin_3.addImage("gold2",coin_img);
+    coin_3.scale = 0.7;
+  coin_3.visible = false;
+  
+    coin_4 = createSprite(width/2+150,height/6,20,20);
+    coin_4.addImage("gold3",coin_img);
+    coin_4.scale = 0.7;
+  coin_4.visible = false;
 
 
   
@@ -134,12 +159,13 @@ function draw() {
     police.bounceOff(border_left);
       police.bounceOff(border_right);
   
-        culprit_1.bounceOff(border_top);
+       if( culprit_1.isTouching(border_top)||culprit_1.isTouching(border_down)||culprit_1.isTouching(border_left)||culprit_1.isTouching(border_right)
+){
+    GameState = END;   
+       }
 
-    culprit_1.bounceOff(border_down);
-    culprit_1.bounceOff(border_left);
-      culprit_1.bounceOff(border_right);
-
+    
+      
   
   
   textSize(15);
@@ -177,14 +203,27 @@ function draw() {
   background(255);
     police.visible = false;
     culprit_1.visible = false;
+      coin_1.visible = true;
+  coin_2.visible = true;
+  coin_3.visible = true;
+  coin_4.visible = true;
+
     fill(255,0,0);
-    text("YOUR AIM IS TO CATCH THE CULPRIT.",width/2-100,height/2);
-    text("use arrow keys to move!",width/2-100,height/2+50);
-    text("your character is police!",width/2-100,height/2+100)
+    text("WELCOME TO 'ENVIRONMENT RULE BREAKER CAUGHT' GAME .",width/2-100,height/2);
+    text("The Game Developed for Creating awareness to Public against Environment Distruction",width/2-100,height/2+50);
+    text("HOW TO PLAY THE GAME : ",width/2-100,height/2+100);
+    text("- Use Arrow Keys (Up/ Down/ Right / Left) Catch the Culprit who Distruct Our enviroment and Save our Earth ",width/2-100,height/2+150);
+    text("- As a Environment Saving Police men Be proud to save your Earth.",width/2-100,height/2+250);
+    text("'HAPPY PLAYING'",width/2-100,height/2+350);
+    text("Thank you, Ramachandran (VIII B), BNM Public School, Bangalore ",width/2-100,height/2+400);
     if (mousePressedOver(continue_box)){
     GameState = Story
                 police.visible = true;
     culprit_1.visible = true;
+  coin_1.visible = false;
+  coin_2.visible = false;
+  coin_3.visible = false;
+  coin_4.visible = false;
     }
   }
   
@@ -204,6 +243,10 @@ function draw() {
     police.velocityX = 5;
           police.visible = true;
     culprit_1.visible = true;
+        coin_1.visible = false;
+  coin_2.visible = false;
+  coin_3.visible = false;
+  coin_4.visible = false;
 
     }
     
@@ -237,6 +280,10 @@ function draw() {
     
     police.visible = true;
     culprit_1.visible = true;
+      coin_1.visible = false;
+  coin_2.visible = false;
+  coin_3.visible = false;
+  coin_4.visible = false;
 
 
 
@@ -261,6 +308,8 @@ GameState = WON;
     reset.visible = true;
     
     
+    
+    
     score = 0;
     
 
@@ -270,6 +319,7 @@ GameState = WON;
     
 
     text("BETTER LUCK NEXT TIME!!!!!",width/3,height/2+40);
+    text("you lost two coins!!",width/3,height/2+60);
     
     
     if (mousePressedOver(reset)&& GameState === END){
@@ -302,6 +352,11 @@ GameState = WON;
       culprit_2.visible = false;
       culprit_1.visible = false;
           reset.visible = true;
+      
+        coin_1.visible = true;
+  coin_2.visible = true;
+  coin_3.visible = false;
+  coin_4.visible = false;
 
       
       score  = score += 110;
@@ -313,6 +368,7 @@ GameState = WON;
      
          text("1,00,000 MARINE ANIMALS DIE BECAUSE OF THIS PLASTIC",width/20,210);
       text("SO, STOP USING PLASTIC",width/20,230);
+      text("YOU GOT TWO COINS!!",width/2,250);
       
           if (mousePressedOver(reset)&& GameState === WON){
     GameState = Story;
