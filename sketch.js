@@ -25,7 +25,7 @@ function preload(){
   culprit_stand_img = loadImage("man-1.png","man-3.png");  
   culprit_run_img_1 = loadAnimation("man-2.png","man-3.png","man-4.png","man-5.png");
   background_img = loadImage("bg-img.jpg");
-  police_img = loadImage("police-1.png","police-2.png");
+  police_img = loadAnimation("police-1.png","police-6.png","police-7.png");
   reset_img = loadImage("reset.png");
 ohnoSound = loadSound('oh no.mp3');
   whistleSound = loadSound("POLWHST2.mp3");
@@ -36,7 +36,7 @@ ohnoSound = loadSound('oh no.mp3');
 function setup() {
   createCanvas(windowWidth, windowHeight);
   
-  police = createSprite(width/width-100,height-150,20,20);
+  police = createSprite(0-100,height-150,20,20);
   police.setCollider('rectangle',0,0,50,50);
   police.addAnimation("police_img",police_img);
   police.scale = 0.5;
@@ -67,7 +67,7 @@ function setup() {
   vanish_box.visible = false;
   
   win_box = createSprite(120,height/2,50,height);
-  win_box.visible  = false;
+   win_box.visible  = false;
  // vanish_box.visible = false;
   
 
@@ -141,7 +141,15 @@ function draw() {
   }
 
   if (GameState === Story){
-      
+    
+    if (police.x >= 100){
+    police.velocityX = 5;
+
+    }
+    
+
+    
+    
     //  text("Press spacebar to move to the thief",width/3,height /3);
   
   if (police.isTouching(win_box)){
