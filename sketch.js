@@ -1,5 +1,5 @@
 var police,police_img;
-var culprit_1,culprit_stand_img,culprit_run_img_1;
+var culprit_1,culprit_stand_img,culprit_run_img_1,boy_stand;
 var culprit_2;
 var backround,background_img;
 var Story = 2;
@@ -29,6 +29,7 @@ function preload(){
   reset_img = loadImage("reset.png");
 ohnoSound = loadSound('oh no.mp3');
   whistleSound = loadSound("POLWHST2.mp3");
+  boy_stand = loadImage("man-1b.png");
 
 }
 
@@ -51,8 +52,10 @@ function setup() {
   
   culprit_1 = createSprite(width - 220,height - 150,20,20);
   culprit_1.scale = 0.5;
-  culprit_1.addAnimation("badboy!",culprit_stand_img);
+  culprit_1.addImage("badboy!",culprit_stand_img);
+    culprit_1.addAnimation("turning",boy_stand);
   culprit_1.addAnimation("culprit",culprit_run_img_1);
+
   culprit_1.setCollider('rectangle',0,0,50,50);
   culprit_1.visible = true;
 
@@ -60,10 +63,10 @@ function setup() {
   culprit_2 = createSprite(culprit_1.x,culprit_1.y,20,20);
   culprit_2.visible = false;
   
-  vanish_box = createSprite(280,255,100,100)
- // vanish_box.visible = false;
+  vanish_box = createSprite(width-400,255,100,100)
+  vanish_box.visible = false;
   
-  win_box = createSprite(120,420,50,700);
+  win_box = createSprite(120,height/2,50,height);
   win_box.visible  = false;
  // vanish_box.visible = false;
   
@@ -153,7 +156,9 @@ function draw() {
   whistleSound.play();  
   culprit_1.velocityY = -2;
   culprit_1.velocityX = -1;
-             culprit_1.changeAnimation("culprit",culprit_run_img_1);
+    culprit_1.changeImage()
+    culprit_1.changeAnimation("turning",boy_stand);
+    culprit_1.changeAnimation("culprit",culprit_run_img_1);
 
    
 
