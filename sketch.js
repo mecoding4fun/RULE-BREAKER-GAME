@@ -121,9 +121,9 @@ border_right = createSprite(width-210,height/4-50,3,250);
 
   left_edge = createSprite(0,height/2,3,height);
 
-  bottom_edge = createSprite(width/2,height,width,3);
+  bottom_edge = createSprite(width/2,height,width+width,3);
   
-  top_edge = createSprite(width/2,0,width,3);
+  top_edge = createSprite(width/2,0,width+width,3);
   
   
   
@@ -207,15 +207,17 @@ function draw() {
   coin_2.visible = true;
   coin_3.visible = true;
   coin_4.visible = true;
+    
+    
 
-    fill(255,0,0);
-    text("WELCOME TO 'ENVIRONMENT RULE BREAKER CAUGHT' GAME .",width/2-100,height/2);
-    text("The Game Developed for Creating awareness to Public against Environment Distruction",width/2-100,height/2+50);
-    text("HOW TO PLAY THE GAME : ",width/2-100,height/2+100);
-    text("- Use Arrow Keys (Up/ Down/ Right / Left) Catch the Culprit who Distruct Our enviroment and Save our Earth ",width/2-100,height/2+150);
-    text("- As a Environment Saving Police men Be proud to save your Earth.",width/2-100,height/2+250);
-    text("'HAPPY PLAYING'",width/2-100,height/2+350);
-    text("Thank you, Ramachandran (VIII B), BNM Public School, Bangalore ",width/2-100,height/2+400);
+    fill(0,0,0);
+    text("WELCOME TO 'ENVIRONMENT RULE BREAKER CAUGHT' GAME .",width/2-200,height/2-100);
+    text("The Game Developed for Creating awareness to Public against Environment Distruction",width/2-250,height/2-50);
+    text("HOW TO PLAY THE GAME : ",width/2-250,height/2);
+    text("- Use Arrow Keys (Up/ Down/ Right / Left) Catch the Culprit who Distruct Our enviroment and Save our Earth ",width/2-250,height/2+50)
+    text("- As a Environment Saving Police men Be proud to save your Earth.",width/2-250,height/2+100);
+    text("'HAPPY PLAYING'",width/2-250,height/2+150);
+    text("Thank you, Ramachandran (VIII B), BNM Public School, Bangalore ",width/2-250,height/2+200);
     if (mousePressedOver(continue_box)){
     GameState = Story
                 police.visible = true;
