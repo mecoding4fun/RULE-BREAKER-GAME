@@ -64,7 +64,7 @@ function setup() {
   culprit_2 = createSprite(culprit_1.x,culprit_1.y,20,20);
   culprit_2.visible = false;
   
-  vanish_box = createSprite(width-800,255,100,100)
+  vanish_box = createSprite(width/2-20,255,100,100)
   vanish_box.visible = false;
   
   win_box = createSprite(120,height/2,50,height);
@@ -281,4 +281,3 @@ console.log(police.x,police.y);
   drawSprites();
  
 }
-
