@@ -1,6 +1,6 @@
 var police,police_img;
 var culprit_1,culprit_stand_img,culprit_run_img_1,boy_stand;
-var culprit_2;
+var border_left,border_right,border_up,border_down;
 var backround,background_img;
 var Story = 2;
 var PLAY = 1;
@@ -46,6 +46,20 @@ function setup() {
   reset = createSprite(width/2,height/2+100,30,30);
   reset.addImage("again",reset_img)
   reset.visible = false;
+  
+  
+  border_left = createSprite(width/width+30,height/2-100,450,3);
+     border_left.visible  = false;
+
+
+border_right = createSprite(width-210,height/4-50,3,250);
+     border_right.visible  = false;
+
+  border_top = createSprite(width/2+30,height/4-50,150,3);
+     border_top.visible  = false;
+
+  border_down = createSprite(width/2,height,width,3);
+   border_down.visible  = false;
 
 
   
@@ -64,7 +78,7 @@ function setup() {
   culprit_2 = createSprite(culprit_1.x,culprit_1.y,20,20);
   culprit_2.visible = false;
   
-  vanish_box = createSprite(width/2-20,255,70,70)
+  vanish_box = createSprite(width/2+20,255,70,70)
   vanish_box.visible = false;
   
   win_box = createSprite(120,height/2,50,height);
@@ -110,6 +124,21 @@ function draw() {
 
     police.bounceOff(top_edge);
     police.bounceOff(bottom_edge);
+  
+      police.bounceOff(border_top);
+
+    police.bounceOff(border_down);
+    police.bounceOff(border_left);
+      police.bounceOff(border_right);
+  
+        culprit_1.bounceOff(border_top);
+
+    culprit_1.bounceOff(border_down);
+    culprit_1.bounceOff(border_left);
+      culprit_1.bounceOff(border_right);
+
+  
+  
   textSize(15);
         fill(255,255,255); 
    // text("Fine collected: "+ score, 500,50);
