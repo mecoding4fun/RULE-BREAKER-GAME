@@ -51,7 +51,7 @@ function setup() {
   
   
   
-  culprit_1 = createSprite(width - 500,height - 150,20,20);
+  culprit_1 = createSprite(width - 700,height - 150,20,20);
   culprit_1.scale = 0.5;
   culprit_1.addImage("badboy!",culprit_stand_img);
     culprit_1.addAnimation("turning",boy_stand);
@@ -64,7 +64,7 @@ function setup() {
   culprit_2 = createSprite(culprit_1.x,culprit_1.y,20,20);
   culprit_2.visible = false;
   
-  vanish_box = createSprite(width-550,255,100,100)
+  vanish_box = createSprite(width-800,255,100,100)
   vanish_box.visible = false;
   
   win_box = createSprite(120,height/2,50,height);
@@ -277,17 +277,7 @@ GameState = WON;
       Score = 500;
 
     }
-
+console.log(mouse.x,mouse.y);
   drawSprites();
  
 }
-
-
-
-
-
-
-
-
-
-
