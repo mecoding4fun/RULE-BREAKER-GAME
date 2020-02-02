@@ -51,7 +51,7 @@ function setup() {
   
   
   
-  culprit_1 = createSprite(width - 700,height - 150,20,20);
+  culprit_1 = createSprite(width - 220,height - 150,20,20);
   culprit_1.scale = 0.5;
   culprit_1.addImage("badboy!",culprit_stand_img);
     culprit_1.addAnimation("turning",boy_stand);
@@ -112,7 +112,7 @@ function draw() {
     police.bounceOff(bottom_edge);
   textSize(15);
         fill(255,255,255); 
-   text("Score: "+ score, 500,50);
+   // text("Fine collected: "+ score, 500,50);
 
 
   
@@ -157,7 +157,6 @@ function draw() {
   whistleSound.play();  
   culprit_1.velocityY = -2;
   culprit_1.velocityX = -1;
-    culprit_1.changeImage()
     culprit_1.changeAnimation("turning",boy_stand);
     culprit_1.changeAnimation("culprit",culprit_run_img_1);
 
@@ -226,7 +225,7 @@ GameState = WON;
       police.velocityX = 0;
       culprit_1.velocityY = -0;
       culprit_1.velocityX = -0;
-      score = 10;
+      score += 10;
       
   culprit_1.changeAnimation("badboy!",culprit_stand_img);
       
@@ -243,7 +242,7 @@ GameState = WON;
           reset.visible = true;
 
       
-      score = 110;
+      score  = score += 110;
 
      textSize(15);
       fill(255,255,255); 
@@ -274,7 +273,7 @@ GameState = WON;
       
     }
       
-      Score = 500;
+
 
     }
 console.log(police.x,police.y);
