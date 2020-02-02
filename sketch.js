@@ -11,7 +11,7 @@ var right_edge;
 var left_edge;
 var bottom_edge;
 var top_edge;
-var score = 0;
+var score = 10;
 var text_box;
 var reset,reset_img;
 var ohnoSound,whistleSound;
@@ -21,8 +21,9 @@ var win_box;
 
 
 function preload(){
+  
   culprit_stand_img = loadImage("man-1.png","man-3.png");  
-  culprit_run_img_1 = loadImage("man-2.png","man-3.png");
+  culprit_run_img_1 = loadAnimation("man-2.png","man-3.png","man-4.png","man-5.png");
   background_img = loadImage("bg-img.jpg");
   police_img = loadImage("police-1.png","police-2.png");
   reset_img = loadImage("reset.png");
@@ -32,7 +33,7 @@ ohnoSound = loadSound('oh no.mp3');
 }
 
 function setup() {
-  createCanvas(windowHeight, windowHeight);
+  createCanvas(windowWidth, windowHeight);
   
   police = createSprite(width-1000,height-150,20,20);
   police.setCollider('rectangle',0,0,50,50);
@@ -60,7 +61,7 @@ function setup() {
   culprit_2.visible = false;
   
   vanish_box = createSprite(280,255,100,100)
-  vanish_box.visible = false;
+ // vanish_box.visible = false;
   
   win_box = createSprite(120,420,50,700);
   win_box.visible  = false;
@@ -192,6 +193,9 @@ GameState = WON;
     culprit_1.visible = false;
     reset.visible = true;
     
+    
+    score = 0;
+    
 
       fill(255,255,255); 
     text("OH NO!! YOU HAVE LOST THE CULPRIT",width/3-50,height/2);
@@ -201,9 +205,51 @@ GameState = WON;
     text("BETTER LUCK NEXT TIME!!!!!",width/3,height/2+40);
     
     
-    if (mousePressedOver(reset)&& GameState === END|| GameState === WON){
+    if (mousePressedOver(reset)&& GameState === END){
     GameState = Story;
       score = 0;
+          police.visible = true;
+    culprit_2.visible = false;
+    culprit_1.visible = true;
+    reset.visible = false;
+      
+      culprit_1.x = width - 220;
+      culprit_1.y  = height-150;
+      police.x = 100;
+      police.y = height-150;
+      police.velocityX = 0;
+  culprit_1.velocityY = -0;
+  culprit_1.velocityX = -0;
+      score = 10;
+      
+       culprit_1.changeAnimation("badboy!",culprit_stand_img);
+      
+      
+    }
+
+  }
+  
+    if (GameState === WON){
+           background(rgb(0,0,0,0.5));
+      police.visible = false;
+      culprit_2.visible = false;
+      culprit_1.visible = false;
+          reset.visible = true;
+
+      
+      score = 110;
+
+     textSize(15);
+      fill(255,255,255); 
+    text("CONGRATULATIONS!! YOU HAVE CAUGHT THE CULPRIT",width/20,150);
+      text("THE CRIME HE HAD CAUSED IS HOLDING PLASTIC BAGS OR USING IT!",width/20,170);
+     
+         text("1,00,000 MARINE ANIMALS DIE BECAUSE OF THIS PLASTIC",width/20,210);
+      text("SO, STOP USING PLASTIC",width/20,230);
+      
+          if (mousePressedOver(reset)&& GameState === WON){
+    GameState = Story;
+      score = 10;
           police.visible = true;
     culprit_2.visible = false;
     culprit_1.visible = true;
@@ -221,24 +267,6 @@ GameState = WON;
       
       
     }
-
-  }
-  
-    if (GameState === WON){
-           background(rgb(0,0,0,0.5));
-      police.visible = false;
-      culprit_2.visible = false;
-      culprit_1.visible = false;
-          reset.visible = true;
-
-
-     textSize(15);
-      fill(255,255,255); 
-    text("CONGRATULATIONS!! YOU HAVE CAUGHT THE CULPRIT",width/20,150);
-      text("THE CRIME HE HAD CAUSED IS HOLDING PLASTIC BAGS OR USING IT!",width/20,170);
-     
-         text("1,00,000 MARINE ANIMALS DIE BECAUSE OF THIS PLASTIC",width/20,210);
-      text("SO, STOP USING PLASTIC",width/20,230);
       
       Score = 500;
 
