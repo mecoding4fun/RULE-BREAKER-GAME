@@ -41,6 +41,7 @@ function setup() {
   police.addAnimation("police_img",police_img);
   police.scale = 0.5;
   police.velocityX = 3;
+  police.velocityY = -1;
   
   reset = createSprite(width/2,height/2+100,30,30);
   reset.addImage("again",reset_img)
@@ -223,11 +224,11 @@ GameState = WON;
       police.x = 100;
       police.y = height-150;
       police.velocityX = 0;
-  culprit_1.velocityY = -0;
-  culprit_1.velocityX = -0;
+      culprit_1.velocityY = -0;
+      culprit_1.velocityX = -0;
       score = 10;
       
-       culprit_1.changeAnimation("badboy!",culprit_stand_img);
+  culprit_1.changeAnimation("badboy!",culprit_stand_img);
       
       
     }
