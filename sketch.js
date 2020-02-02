@@ -141,15 +141,7 @@ function draw() {
   }
 
   if (GameState === Story){
-    
-    if (police.x >= 100){
-    police.velocityX = 5;
-
-    }
-    
-
-    
-    
+      
     //  text("Press spacebar to move to the thief",width/3,height /3);
   
   if (police.isTouching(win_box)){
