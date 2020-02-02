@@ -219,10 +219,10 @@ GameState = WON;
     culprit_1.visible = true;
     reset.visible = false;
       
-      culprit_1.x = width - 220;
+      culprit_1.x = width - 700;
       culprit_1.y  = height-150;
-      police.x = 100;
-      police.y = height-150;
+      police.x = 0-10;
+      police.y = height-100;
       police.velocityX = 0;
       culprit_1.velocityY = -0;
       culprit_1.velocityX = -0;
@@ -261,10 +261,10 @@ GameState = WON;
     culprit_1.visible = true;
     reset.visible = false;
       
-      culprit_1.x = width - 220;
+      culprit_1.x = width - 700;
       culprit_1.y  = height-150;
-      police.x = 100;
-      police.y = height-150;
+      police.x = 0-10;
+      police.y = height-100;
       police.velocityX = 0;
       culprit_1.velocityY = -0;
       culprit_1.velocityX = -0;
