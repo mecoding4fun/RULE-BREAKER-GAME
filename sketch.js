@@ -17,7 +17,7 @@ var text_box;
 var reset,reset_img;
 var ohnoSound,whistleSound;
 var win_box;
-var continue_box;
+var continue_box,continue_box_img;
 
 var coin_1,coin_2,coin_3,coin_4,coin_img;
 
@@ -35,6 +35,7 @@ ohnoSound = loadSound('oh no.mp3');
   whistleSound = loadSound("POLWHST2.mp3");
   boy_stand = loadImage("man-1b.png");
   coin_img = loadImage("coin.png");
+  continue_box_img = loadImage("load.png");
 
 }
 
@@ -66,8 +67,9 @@ border_right = createSprite(width-210,height/4-50,3,250);
   border_down = createSprite(width/2,height,width,3);
    border_down.visible  = false;
   
-  continue_box = createSprite(width/2,height/2,width,height);
-  continue_box.visible = false;
+  continue_box = createSprite(width-100,height-75,100,100);
+  continue_box.addImage("play",continue_box_img)  
+
   
   
   
@@ -207,6 +209,7 @@ function draw() {
   coin_2.visible = true;
   coin_3.visible = true;
   coin_4.visible = true;
+      // continue_box.visible = false;
     
     
 
@@ -249,6 +252,7 @@ function draw() {
   coin_2.visible = false;
   coin_3.visible = false;
   coin_4.visible = false;
+        continue_box.visible = false;
 
     }
     
@@ -286,6 +290,7 @@ function draw() {
   coin_2.visible = false;
   coin_3.visible = false;
   coin_4.visible = false;
+      continue_box.visible = false;
 
 
 
@@ -308,7 +313,7 @@ GameState = WON;
     culprit_2.visible = false;
     culprit_1.visible = false;
     reset.visible = true;
-    
+      continue_box.visible = false;
     
     
     
@@ -341,6 +346,8 @@ GameState = WON;
       culprit_1.velocityX = -0;
       score += 10;
       
+        continue_box.visible = false;
+      
   culprit_1.changeAnimation("badboy!",culprit_stand_img);
       
       
@@ -371,6 +378,7 @@ GameState = WON;
          text("1,00,000 MARINE ANIMALS DIE BECAUSE OF THIS PLASTIC",width/20,210);
       text("SO, STOP USING PLASTIC",width/20,230);
       text("YOU GOT TWO COINS!!",width/2,250);
+        continue_box.visible = false;
       
           if (mousePressedOver(reset)&& GameState === WON){
     GameState = Story;
@@ -387,6 +395,7 @@ GameState = WON;
       police.velocityX = 0;
       culprit_1.velocityY = -0;
       culprit_1.velocityX = -0;
+              continue_box.visible = false;
       
        culprit_1.changeAnimation("badboy!",culprit_stand_img);
       
